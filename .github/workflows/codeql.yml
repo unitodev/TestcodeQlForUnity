@@ -62,7 +62,7 @@ jobs:
   # You may pin to the exact commit or the version.
   # uses: game-ci/unity-builder@dd427466ce741f0f68264e5962f034214d814904
       run: |
-        echo 'dotnet new sln --name mysolution'
+        dotnet new sln --name mysolution
     # Initializes the CodeQL tools for scanning.
     - name: Initialize CodeQL
       uses: github/codeql-action/init@v3
