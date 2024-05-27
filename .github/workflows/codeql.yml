@@ -95,8 +95,9 @@ jobs:
         echo '  make bootstrap'
         echo '  make release'
         ls
-#        Unity -quit -batchmode -nographics -buildTarget EmbeddedLinux -executeMethod Builder.Build -projectPath <>
         exit 1
+#        Unity -quit -batchmode -nographics -buildTarget EmbeddedLinux -executeMethod Builder.Build -projectPath <>
+        
 #    - name: Build project
 #      uses: game-ci/unity-builder@v4
 #      env:
