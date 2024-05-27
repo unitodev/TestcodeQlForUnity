@@ -27,22 +27,22 @@ jobs:
         with:
           dotnet-version: '6.x'
           
-      - name: Free up space
-        run: |
-         sudo rm -rf /usr/share/dotnet
-         sudo rm -rf /opt/ghc
-         sudo rm -rf /usr/local/share/boost
-         sudo apt-get clean
-        
-      - name: Setup Unity
-        uses: game-ci/unity-builder@v4
-        env:
-              UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-              UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-              UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-        with:
-          version: '2022.3.6f1' # Specify your Unity version
-   
+#      - name: Free up space
+#        run: |
+#         sudo rm -rf /usr/share/dotnet
+#         sudo rm -rf /opt/ghc
+#         sudo rm -rf /usr/local/share/boost
+#         sudo apt-get clean
+#        
+#      - name: Setup Unity
+#        uses: game-ci/unity-builder@v4
+#        env:
+#              UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+#              UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+#              UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+#        with:
+#          version: '2022.3.6f1' # Specify your Unity version
+#   
      
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
