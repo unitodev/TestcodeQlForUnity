@@ -26,7 +26,14 @@ jobs:
         uses: actions/setup-dotnet@v3
         with:
           dotnet-version: '6.x'
-
+          
+      - name: Free up space
+        run: |
+         sudo rm -rf /usr/share/dotnet
+         sudo rm -rf /opt/ghc
+         sudo rm -rf /usr/local/share/boost
+         sudo apt-get clean
+        
       - name: Setup Unity
         uses: game-ci/unity-builder@v4
         env:
