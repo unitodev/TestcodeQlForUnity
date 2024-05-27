@@ -42,10 +42,20 @@ jobs:
         with:
           languages: ${{ matrix.language }}
 
-      - name: Build project
-        run: |
-          /Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/Linux/Unity -quit -batchmode --project-path . --build-target StandaloneWindows64
+#      - name: Build project
+#        run: |
+#          /Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/Linux/Unity -quit -batchmode --project-path . --build-target StandaloneWindows64
 
+
+      - name: Setup Unity
+        uses: game-ci/unity-builder@v4
+        env:
+          UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
+          UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
+          UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        with:
+          version: '2022.3.6f1' # Specify your Unity version
+          targetPlatform: WebGL
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
         with:
