@@ -117,7 +117,7 @@ jobs:
         echo '  make bootstrap'
         echo '  make release'
         ls
-        Unity -quit -batchmode -nographics -buildTarget EmbeddedLinux -executeMethod Builder.PerformBuild -projectPath ..
+#        Unity -quit -batchmode -nographics -buildTarget EmbeddedLinux -executeMethod Builder.PerformBuild -projectPath ..
         exit 1
        
         
