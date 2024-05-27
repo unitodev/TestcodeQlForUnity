@@ -28,35 +28,25 @@ jobs:
           dotnet-version: '6.x'
 
       - name: Setup Unity
-        uses: game-ci/unity-builder@v4
-        env:
-              UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-              UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-              UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
+        uses: game-ci/unity-builder@v2
         with:
-          version: '2022.3.6f1' # Specify your Unity version
-          
-#      - name: Activate Unity License
-#        uses: game-ci/unity-activate@v2
-#        with:
-#          unityLicense: ${{ secrets.UNITY_LICENSE }}
-#  - uses: game-ci/unity-builder@v4
-#    env:
-#      UNITY_LICENSE: ${{ secrets.UNITY_LICENSE }}
-#      UNITY_EMAIL: ${{ secrets.UNITY_EMAIL }}
-#      UNITY_PASSWORD: ${{ secrets.UNITY_PASSWORD }}
-#    with:
-#      targetPlatform: WebGL
+          version: '2021.1.14f1' # Specify your Unity version
 
-     
+      - name: Activate Unity License
+        uses: game-ci/unity-activate@v2
+        with:
+          unityLicense: ${{ secrets.UNITY_LICENSE }}
+
+      - name: Build project
+        uses: game-ci/unity-builder@v2
+        with:
+          version: '2021.1.14f1'
+          targetPlatform: StandaloneWindows64
+
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
-
-      - name: Build project
-        run: |
-          unity-builder actions run build --project-path . --build-target StandaloneWindows64
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
