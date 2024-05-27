@@ -94,7 +94,8 @@ jobs:
           'your code, for example:'
         echo '  make bootstrap'
         echo '  make release'
-        Unity -quit -batchmode -nographics -buildTarget EmbeddedLinux -executeMethod Builder.Build -projectPath <>
+        ls
+#        Unity -quit -batchmode -nographics -buildTarget EmbeddedLinux -executeMethod Builder.Build -projectPath <>
         exit 1
 #    - name: Build project
 #      uses: game-ci/unity-builder@v4
