@@ -53,7 +53,10 @@ jobs:
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
-
+      - name: Debug CodeQL Analysis
+        run: |
+         echo "Contents of the CodeQL database directory:"
+         ls -la /home/runner/work/_temp/codeql_databases/csharp
 #      - name: Build project
 #        run: |
 #          /Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/Linux/Unity -quit -batchmode --project-path . --build-target StandaloneWindows64
