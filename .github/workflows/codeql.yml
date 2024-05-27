@@ -44,7 +44,7 @@ jobs:
 
       - name: Build project
         run: |
-          /opt/unity/Editor/Unity -quit -batchmode --project-path . --build-target StandaloneWindows64
+          /Applications/Unity/Hub/Editor/2022.3.6f1/Unity.app/Contents/Linux/Unity -quit -batchmode --project-path . --build-target StandaloneWindows64
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
