@@ -66,6 +66,7 @@ jobs:
         wget https://download.unity3d.com/download_unity/b9e6e7e9fa2d/UnitySetup-2022.3.6f1 
         chmod +x UnitySetup-2022.3.6f1
         ./UnitySetup-2022.3.6f1
+        ls
         chmod +x UnityHub.AppImage
 #        ./UnityHub.AppImage
       
