@@ -75,7 +75,7 @@ jobs:
       - name: buildCMD
         run: |
           ls
-         /opt/unity/Editor/Unity -quit -batchmode -projectPath ~/UnityProjects/MyProject -executeMethod Builder.PerformBuild
+          /opt/unity/Editor/Unity -quit -batchmode -projectPath ~/UnityProjects/MyProject -executeMethod Builder.PerformBuild
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
