@@ -16,11 +16,21 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        language: [ 'cpp', 'csharp' ]  # Add or remove languages as needed
+        language: [ 'csharp' ]
 
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: '6.x'
+
+      - name: Setup Unity
+        uses: game-ci/unity-builder@v2
+        with:
+          version: '2022.3.6f1' # Specify your Unity version
 
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
@@ -29,9 +39,7 @@ jobs:
 
       - name: Build project
         run: |
-          # Add commands to build your Unity project here
-          # For example:
-          /opt/unity/Editor/Unity -quit -batchmode -nographics -logFile /dev/stdout -projectPath . -executeMethod builder.PerformBuild
+          unity-builder actions run build --project-path . --build-target StandaloneWindows64
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
