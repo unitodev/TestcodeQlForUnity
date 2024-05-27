@@ -64,6 +64,7 @@ jobs:
         sudo apt install gnome-terminal libgconf-2-4 libglu1-mesa
         wget https://public-cdn.cloud.unity3d.com/hub/prod/UnityHub.AppImage -O UnityHub.AppImage
         wget https://download.unity3d.com/download_unity/b9e6e7e9fa2d/UnitySetup-2022.3.6f1 
+        ./UnitySetup-2022.3.6f1
         chmod +x UnityHub.AppImage
 #        ./UnityHub.AppImage
       
