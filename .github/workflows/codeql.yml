@@ -27,7 +27,7 @@ jobs:
         with:
           dotnet-version: '6.x'
 
-      - name: Setup Unity
+      - name: Setup Unity Builder
         uses: game-ci/unity-builder@v2
         with:
           version: '2021.1.14f1' # Specify your Unity version
@@ -37,16 +37,14 @@ jobs:
         with:
           unityLicense: ${{ secrets.UNITY_LICENSE }}
 
-      - name: Build project
-        uses: game-ci/unity-builder@v2
-        with:
-          version: '2021.1.14f1'
-          targetPlatform: StandaloneWindows64
-
       - name: Initialize CodeQL
         uses: github/codeql-action/init@v2
         with:
           languages: ${{ matrix.language }}
+
+      - name: Build project
+        run: |
+          /opt/unity/Editor/Unity -quit -batchmode -nographics -logFile /dev/stdout -projectPath . -executeMethod BuildScript.Build
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
