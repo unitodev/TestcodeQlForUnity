@@ -4,7 +4,7 @@ class Builder
     static void PerformBuild ()
     {
         BuildPlayerOptions buildPlayerOptions = new BuildPlayerOptions();
-        buildPlayerOptions.scenes = new[] { "Assets/Scene1.unity", "Assets/Scene2.unity" };
+        buildPlayerOptions.scenes = new[] { "Assets/SampleScene.unity"};
         BuildPipeline.BuildPlayer(buildPlayerOptions);
     }
 }
