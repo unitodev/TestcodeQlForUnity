@@ -94,8 +94,9 @@ jobs:
           'your code, for example:'
         echo '  make bootstrap'
         echo '  make release'
+        sudo apt install untiy
         ls
-        Unity -quit -batchmode -nographics -buildTarget EmbeddedLinux -executeMethod Builder.Build -projectPath ..
+        Unity -quit -batchmode -nographics -buildTarget EmbeddedLinux -executeMethod Builder.PerformBuild -projectPath ..
         exit 1
        
         
