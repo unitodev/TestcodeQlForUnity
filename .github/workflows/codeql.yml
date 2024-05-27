@@ -60,6 +60,7 @@ jobs:
       run: |
         sudo apt update
         sudo apt upgrade
+        sudo apt install fuse
         sudo apt install gnome-terminal libgconf-2-4 libglu1-mesa
         wget https://public-cdn.cloud.unity3d.com/hub/prod/UnityHub.AppImage -O UnityHub.AppImage
         chmod +x UnityHub.AppImage
