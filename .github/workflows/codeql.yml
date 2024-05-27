@@ -74,7 +74,7 @@ jobs:
 #          allowDirtyBuild: true
       - name: Debug Unity Editor Path
         run: |
-          ls -la /opt/unity/Editor
+          ls -la /github/workspace
       - name: buildCMD
         run: |
           ls
