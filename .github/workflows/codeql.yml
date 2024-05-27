@@ -72,6 +72,9 @@ jobs:
 #          version: '2022.3.6f1' # Specify your Unity version
 #          targetPlatform: WebGL
 #          allowDirtyBuild: true
+      - name: Debug Unity Editor Path
+        run: |
+          ls -la /opt/unity/Editor
       - name: buildCMD
         run: |
           ls
